@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MahdiyaMakeovers</title>
+  <style>
+    :root{--accent:#b36b88;--bg:#fff;--muted:#666;--maxw:1000px;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{margin:0;background:#faf7f8;color:#222}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:24px}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:110px;height:110px;border-radius:12px;background:linear-gradient(135deg,#f3dbe4,#fff);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{margin:6px 0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:20px}
+    .card{background:#fff;border-radius:10px;padding:18px;box-shadow:0 6px 18px rgba(15,15,15,0.06)}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{background:#fff;border:1px solid #eee;padding:6px 10px;border-radius:999px;font-size:0.85rem}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:12px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px;cursor:pointer;display:block}
+    .meta{font-size:0.9rem;color:var(--muted);margin-top:8px}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;display:inline-block;margin-top:10px}
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:0.9rem}
+    /* lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+    .lightbox img{max-width:95%;max-height:85%;border-radius:8px}
+    /* responsive */
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="avatar">
+  <img src="./images/logo.jpeg" alt="" style="width:100%; height:100%; border-radius:12px; object-fit:cover;">
+</div>
+
+      <div>
+        <h1>MahdiyaMakeovers</h1>
+        <p class="lead">Professional Makeup Artist — Bridal, Party & Celebrity looks • 5+ years experience (2020–Present)</p>
+        <div class="meta">500+ brides • 700+ party makeups • Celebrity clients: Sneha Mehta (DCP, Hyderabad), Mrs. Abdullah Bin Balala</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card">
+          <h2>About Me</h2>
+          <p class="meta">I create long-lasting, camera-ready makeup using luxury professional products. Specialties: Bridal transformations, HD makeup, airbrush finishes, and editorial looks.</p>
+          <div class="skills">
+            <div class="chip">Bridal Makeup</div>
+            <div class="chip">Celebrity Looks</div>
+            <div class="chip">HD & Airbrush</div>
+            <div class="chip">Hair Styling</div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:16px;">
+          <h2>Sample Work</h2>
+          <p class="meta">Click images to view larger.</p>
+         <!-- Example gallery section -->
+<!-- Makeup Portfolio Gallery -->
+<div class="gallery">
+  <img src="./images/bride1.jpeg" alt="" >
+  <img src="./images/bride2.jpeg" alt="">
+  <img src="./images/part1.jpeg" alt="">
+  <img src="./images/party2.jpeg" alt="">
+ </div>
+
+        </section>
+
+        <section class="card" style="margin-top:16px;">
+          <h2>Services</h2>
+          <ul>
+            <li>Bridal (Full) — on-location / studio</li>
+            <li>Reception / Engagement — airbrush + hair</li>
+            <li>Party / Photoshoot — HD makeup</li>
+            <li>Touch-up packages & group bookings available</li>
+          </ul>
+          <a class="btn" href="https://wa.me/919701758269?text=Hi%20Mahdiya!%20I%20would%20like%20to%20book%20a%20makeup%20session%20or%20learn%20more%20about%20your%20services." target="_blank">
+  Book / Enquire
+</a>
+
+        </section>
+      </main>
+
+      <aside>
+        <div class="card">
+          <h3>Tools & Products</h3>
+          <p class="meta">MAC, Estée Lauder, Huda Beauty, Giorgio Armani, NARS, Dior, Fenty, Kat Von D, Kryolan, Maybelline, Milk Makeup, One/Size</p>
+          <h4 style="margin-top:12px">Brushes & Hardware</h4>
+          <p class="meta">Morphe brushes • Philips & Ikonic hair tools</p>
+        </div>
+
+        <div class="card" style="margin-top:12px;">
+          <h3>Contact</h3>
+          <p class="meta">Hyderabad, India</p>
+          <p class="meta">Phone: +91 9701758269</p>
+          <p class="meta">Instagram: <a href="https://www.instagram.com/makeupbymahdiyaa?igsh=bjhwdTl4ejh3NDBw" target="_blank">@mahdiyamakeovers</a></p>
+          <p class="meta" style="margin-top:10px">Available for bridal bookings, celebrity & editorial shoots.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      © <span id="year"></span> Mahdiya Tazeen — Makeup Artist
+    </footer>
+  </div>
+
+  <!-- lightbox -->
+  <div class="lightbox" id="lightbox">
+    <img id="lbimg" src="" alt="large">
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // simple lightbox
+    const gallery = document.getElementById('gallery');
+    const lb = document.getElementById('lightbox');
+    const lbimg = document.getElementById('lbimg');
+    gallery.addEventListener('click', e => {
+      if(e.target.tagName === 'IMG'){
+        lbimg.src = e.target.src.replace('600x400','1200x800'); // try larger if available
+        lb.style.display = 'flex';
+      }
+    });
+    lb.addEventListener('click', ()=> lb.style.display='none');
+  </script>
+</body>
+</html>
